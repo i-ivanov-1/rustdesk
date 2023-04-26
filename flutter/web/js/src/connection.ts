@@ -6,11 +6,9 @@ import * as sha256 from "fast-sha256";
 import * as globals from "./globals";
 import { decompress, mapKey, sleep } from "./common";
 
-const PORT = 21116;
+const PORT = 10901;
 const HOSTS = [
-  "rs-sg.rustdesk.com",
-  "rs-cn.rustdesk.com",
-  "rs-us.rustdesk.com",
+  "ip2.itechart-group.com",
 ];
 let HOST = localStorage.getItem("rendezvous-server") || HOSTS[0];
 const SCHEMA = "ws://";
@@ -157,7 +155,7 @@ export default class Connection {
 
   async secure(pk: Uint8Array | undefined) {
     if (pk) {
-      const RS_PK = "OeVuKk5nlHiXp+APNn0Y3pC1Iwpwn44JGqrQCsWqmBw=";
+      const RS_PK = "jgbpA+pHV0RfScduyMbNndfhKM2dxxVi9Q89q231es8=";
       try {
         pk = await globals.verify(pk, localStorage.getItem("key") || RS_PK);
         if (pk) {
